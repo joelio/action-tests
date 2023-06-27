@@ -15,6 +15,10 @@ on:
         description: 'True to print to STDOUT'
         required: true
         type: boolean
+      run_deployment:
+        description: 'Run Deployment'
+        required: true
+        type: boolean
       tags:
         description: 'Test scenario tags'
         required: true
@@ -31,4 +35,8 @@ jobs:
     if:  ${{ inputs.print_tags }} 
     steps:
       - name: Print the input tag to STDOUT
-        run: echo  The tags are ${{ inputs.tags }} 
+        run: echo  The tags are ${{ inputs.tags }}
+    if:  ${{ inputs.run_deployment }} 
+    steps:
+      - name: Deployment
+        run: echo This is a deployment
