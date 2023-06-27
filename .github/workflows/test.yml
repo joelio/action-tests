@@ -30,12 +30,13 @@ on:
 
 jobs:
   print-tag:
-    environment: staging_environment
     runs-on: ubuntu-latest
     if:  ${{ inputs.print_tags }} 
     steps:
       - name: Print the input tag to STDOUT
         run: echo  The tags are ${{ inputs.tags }}
+  deployg:
+    runs-on: ubuntu-latest
     if:  ${{ inputs.run_deployment }} 
     steps:
       - name: Deployment
